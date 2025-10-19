@@ -3,8 +3,20 @@ import { toast } from "react-toastify";
 
 axios.defaults.withCredentials = true; // ✅ Always send cookies with every request
 
-export const apiProcessor = async ({ method, url, payload, showToast }) => {
+export const apiProcessor = async ({
+  method,
+  url,
+  payload,
+  showToast,
+  isPrivateCall,
+}) => {
   try {
+    const config = {};
+
+    if (isPrivateCall) {
+      config.withCredentials = true;
+    }
+
     const responsePending = axios({
       method,
       url,
@@ -24,8 +36,6 @@ export const apiProcessor = async ({ method, url, payload, showToast }) => {
     const msg = error?.response?.data?.message || error.message;
     showToast && toast.error(msg);
     console.log("API Error:", msg);
-
-    // No JWT refresh needed here — cookie will expire automatically
     return {
       status: "error",
       message: msg,

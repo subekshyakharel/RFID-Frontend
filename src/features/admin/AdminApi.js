@@ -12,3 +12,30 @@ export const loginAdminApi = async (payload) => {
   };
   return apiProcessor(obj);
 };
+
+export const logoutAdminApi = async () => {
+  const obj = {
+    method: "post",
+    url: authApi + "/logout",
+    showToast: true,
+  };
+  return apiProcessor(obj);
+};
+
+export const fetchAdminApi = async () => {
+  try {
+    const obj = {
+      method: "get",
+      url: authApi + "/me",
+      showToast: true,
+      isPrivateCall: true,
+    };
+    return apiProcessor(obj);
+  } catch (error) {
+    console.log(error.message);
+    return {
+      status: "error",
+      message: error.message,
+    };
+  }
+};

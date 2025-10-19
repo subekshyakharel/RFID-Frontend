@@ -4,6 +4,8 @@ import { useState } from "react";
 import useForm from "../../component/hooks/useForm";
 import { useLocation, useNavigate } from "react-router-dom";
 import { loginAdminApi } from "../../features/admin/AdminApi";
+import { useDispatch } from "react-redux";
+import { fetchAdminAction } from "../../features/admin/AdminAction.js";
 
 const loginInput = [
   {
@@ -32,6 +34,7 @@ const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
 
   const goto = location?.state?.from?.pathname || "admin";
 
@@ -40,12 +43,14 @@ const handleOnSubmit = async (e) => {
   setIsLoading(true);
 
   if (form.email && form.password) {
-    const { status, admin, message } = await loginAdminApi(form);
-    console.log("Login Response:", { status, admin, message });
-
+    const { admin, message } = await loginAdminApi(form);
+  dispatch(fetchAdminAction())
+    console.log("Login Response:", admin, message);
     setIsLoading(false);
 
-    if (status === "success") {
+
+    if (message === "login successful") {
+       
       setForm(initialState);
       navigate(goto); // ✅ Navigate after login
     }
