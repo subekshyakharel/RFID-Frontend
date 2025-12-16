@@ -27,7 +27,7 @@ export const fetchAdminApi = async () => {
     const obj = {
       method: "get",
       url: authApi + "/me",
-      showToast: true,
+      // showToast: true,
       isPrivateCall: true,
     };
     return apiProcessor(obj);

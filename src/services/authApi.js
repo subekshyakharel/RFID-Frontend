@@ -21,6 +21,7 @@ export const apiProcessor = async ({
       method,
       url,
       data: payload,
+      withCredentials: true,
     });
 
     if (showToast) {

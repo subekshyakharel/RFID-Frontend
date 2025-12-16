@@ -9,7 +9,7 @@ const Sidebar = () => {
   const dispatch = useDispatch();
     const handleOnLogout =async ()=>{
       //call api to logout from backend
-      loginAdminApi();
+      await logoutAdminApi()
 
       dispatch(setAdmin({}))
     }

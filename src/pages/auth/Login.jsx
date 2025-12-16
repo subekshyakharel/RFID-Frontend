@@ -42,22 +42,36 @@ const handleOnSubmit = async (e) => {
   e.preventDefault();
   setIsLoading(true);
 
-  if (form.email && form.password) {
-    const { admin, message } = await loginAdminApi(form);
-  dispatch(fetchAdminAction())
-    console.log("Login Response:", admin, message);
-    setIsLoading(false);
-
-
-    if (message === "login successful") {
-       
-      setForm(initialState);
-      navigate(goto); // ✅ Navigate after login
-    }
-  } else {
+  if(!form.email || !form.password){
     alert("Both input must be provided");
-    setIsLoading(false);
+    setIsLoading(false)
   }
+
+  const {admin, message} = await loginAdminApi(form);
+
+  if(message=== "login successful") {
+    await dispatch(fetchAdminAction());
+
+    setForm(initialState);
+    navigate(goto);
+  }
+
+  // if (form.email && form.password) {
+  //   const { admin, message } = await loginAdminApi(form);
+  // dispatch(fetchAdminAction())
+  //   console.log("Login Response:", admin, message);
+  //   setIsLoading(false);
+
+
+  //   if (message === "login successful") {
+       
+  //     setForm(initialState);
+  //     navigate(goto); // ✅ Navigate after login
+  //   }
+  // } else {
+  //   alert("Both input must be provided");
+  //   setIsLoading(false);
+  // }
 };
 
   return (
