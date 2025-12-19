@@ -7,6 +7,7 @@ import UserLayout from '../component/layout/userLayout'
 import OrganizationAdmin from '../pages/organization/OrganizationAdmin'
 import Organization from '../pages/organization/Organization'
 import Settings from '../pages/organization/Settings'
+import NewOrganization from '../pages/organization/NewOrganization'
 
 
 
@@ -26,6 +27,7 @@ const AppRoutes = () => {
     <Route path='organization' element={<Organization/>} />
     <Route path='org-admins' element={<OrganizationAdmin/>} />
     <Route path='settings' element={<Settings/>} />
+    <Route path='new-org' element={<NewOrganization/>} />
     </Route>
  </Routes>
 
