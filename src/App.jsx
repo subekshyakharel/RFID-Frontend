@@ -4,6 +4,7 @@ import AppRoutes from './routes/AppRoutes'
 import { ToastContainer } from 'react-toastify'
 import { useDispatch } from 'react-redux'
 import { fetchAdminAction } from './features/admin/AdminAction'
+import ModalWrapper from './component/modalWrapper/ModalWrapper'
 
 
 const App = () => {
@@ -16,6 +17,7 @@ const App = () => {
     <div>
       <AppRoutes/>
       <ToastContainer/>
+      <ModalWrapper/>
     </div>
   )
 }

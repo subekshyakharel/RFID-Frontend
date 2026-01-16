@@ -1,7 +1,8 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  org: {},
+  org: [],
+  singleOrg: {},
 };
 
 const orgSlice = createSlice({
@@ -11,9 +12,12 @@ const orgSlice = createSlice({
     setOrg: (state, action) => {
       state.org = action.payload;
     },
+    setSingleOrg: (state, action) => {
+      state.singleOrg = action.payload;
+    },
   },
 });
 
 const { reducer, actions } = orgSlice;
-export const { setOrg } = actions;
+export const { setOrg, setSingleOrg } = actions;
 export default reducer;

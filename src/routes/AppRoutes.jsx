@@ -8,6 +8,7 @@ import OrganizationAdmin from '../pages/organization/OrganizationAdmin'
 import Organization from '../pages/organization/Organization'
 import Settings from '../pages/organization/Settings'
 import NewOrganization from '../pages/organization/NewOrganization'
+import OrgLandingPage from '../pages/organization/orgLandingPage'
 
 
 
@@ -28,6 +29,7 @@ const AppRoutes = () => {
     <Route path='org-admins' element={<OrganizationAdmin/>} />
     <Route path='settings' element={<Settings/>} />
     <Route path='new-org' element={<NewOrganization/>} />
+    <Route path='organization/:id' element={<OrgLandingPage/>}/>
     </Route>
  </Routes>
 
