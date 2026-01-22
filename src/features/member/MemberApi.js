@@ -14,3 +14,12 @@ export const createNewMemberApi = async (payload, orgId) => {
 
   return apiProcessor(obj);
 };
+
+export const getAllMemberApi = async (orgId) => {
+  const obj = {
+    method: "get",
+    url: `${memberApi}?orgId=${orgId}`,
+    isPrivateCall: true,
+  };
+  return apiProcessor(obj);
+};

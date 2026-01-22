@@ -10,6 +10,8 @@ import { FaPeopleGroup } from "react-icons/fa6";
 import { IoAddCircle } from "react-icons/io5";
 import { setModalContent, setModalShow } from "../../features/system/systemSlice";
 import AddMemberForm from "../../component/forms/memberForm/AddMemberForm";
+import { getAllMemberAction } from "../../features/member/MemberAction";
+import MemberTable from "../../component/table/MemberTable";
 
 const OrgLandingPage = () => {
   const dispatch = useDispatch();
@@ -17,6 +19,7 @@ const OrgLandingPage = () => {
   const { singleOrg } = useSelector((state) => state.orgInfo);
   useEffect(() => {
     dispatch(getSingleOrgAction(id));
+    dispatch(getAllMemberAction(id))
   }, [dispatch, id]);
 
   const handleOnAddMembers = ()=>{
@@ -78,6 +81,8 @@ const OrgLandingPage = () => {
           <IoAddCircle /> Add Members
         </Button>
       </div>
+
+      <MemberTable/>
     </>
   );
 };

@@ -21,13 +21,8 @@ const ModalWrapper = (props) => {
         </Modal.Title>
       </Modal.Header>
       <Modal.Body>
-        <p>
             {modalContent.content}
-        </p>
       </Modal.Body>
-      <Modal.Footer>
-        <Button onClick={props.onHide}>Close</Button>
-      </Modal.Footer>
     </Modal>
     </div>
   )

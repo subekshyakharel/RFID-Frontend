@@ -36,9 +36,16 @@ const memberInput = [
     {
         label:"Department",
         type:"text",
-        placeholder:"98xxxxxxxxx",
+        placeholder:"",
         required:true,
         name:"department"
+    },
+    {
+        label:"RFID",
+        type:"number",
+        placeholder:"",
+        required:true,
+        name:"rfid"
     },
 ]
 
